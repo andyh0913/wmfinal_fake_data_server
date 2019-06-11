@@ -19,9 +19,7 @@ app.get("/game_data/:gameId", (req, res)=>{
 
 app.get("/result", (req,res)=>{
 	game = games.find(g=>g.id === parseInt(req.query.id));
-	// console.log(game)
-	// res.send(game.result)
-	res.send({result: game.result});
+	res.json(game.result);
 })
 
 app.get("/score", (req,res)=>{
@@ -31,7 +29,7 @@ app.get("/score", (req,res)=>{
 
 app.get("/status", (req,res)=>{
 	game = games.find(g=>g.id === parseInt(req.query.id));
-	res.send({status: game.status})
+	res.json(game.status)
 })
 
 app.get("/start", (req,res)=>{
